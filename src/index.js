@@ -106,7 +106,16 @@ class Plugin {
                 SourceAccount: fnGetRef("AWS::AccountId"),
             }
         };
+        
+         const functionObj = this.serverless.service.getFunction('sumologicShipping');
+         const sumologicShippingLogGroup = {
+            Type: "AWS::Logs::LogGroup",
+            Properties: {
+                LogGroupName: `/aws/lambda/${functionObj.name}`
+            }
+          };
 
+        this.serverless.service.provider.compiledCloudFormationTemplate.Resources.SumologicShippingLogGroup = sumologicShippingLogGroup;
 
         this.serverless.service.getAllFunctions().forEach(fnName => {
             if (fnName !== 'sumologicShipping') {

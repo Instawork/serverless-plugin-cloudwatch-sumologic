@@ -110,7 +110,7 @@ class Plugin {
         const sumologicShippingLogGroup = {
             Type: "AWS::Logs::LogGroup",
             Properties: {
-                LogGroupName:`/aws/lambda/${this.serverless.service.service}-${this.serverless.service.provider.stage}-sumologicShipping`
+                LogGroupName:`/aws/lambda/${this.serverless.service.service}-${this.serverless.processedInput.options.stage||"dev"}-sumologicShipping`
             }
         };
 

@@ -65,7 +65,7 @@ class Plugin {
 
         this.serverless.service.functions.sumologicShipping = {
             handler: `${this.sumoFnName}/handler.handler`,
-            runtime: "nodejs10.x",
+            runtime: this.serverless.service.custom.shipLogs.runtime || "nodejs12.x",
             events: []
         };
 

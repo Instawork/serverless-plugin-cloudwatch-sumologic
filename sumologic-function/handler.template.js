@@ -22,7 +22,7 @@ exports.handler = function (event, context) {
     zlib.gunzip(zippedInput, function (e, buffer) {
         if (e) { context.fail(e); }
 
-        var awslogsData = JSON.parse(buffer.toString('ascii'));
+        var awslogsData = JSON.parse(buffer.toString('utf8'));
 
         console.log(awslogsData);
 

@@ -28,8 +28,8 @@ class Plugin {
         this.sumoFnName = 'sumologic-shipping-function'
 
         this.hooks = {
-            'before:deploy:createDeploymentArtifacts': this.beforeDeployCreateDeploymentArtifacts.bind(this),
-            'deploy:compileEvents': this.deployCompileEvents.bind(this),
+            'before:package:createDeploymentArtifacts': this.beforeDeployCreateDeploymentArtifacts.bind(this),
+            'package:compileEvents': this.deployCompileEvents.bind(this),
             'after:deploy:deploy': this.afterDeployDeploy.bind(this)
         };
     }
